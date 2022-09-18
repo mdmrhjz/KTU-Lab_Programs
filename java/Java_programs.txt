@@ -1,0 +1,210 @@
+// 	Thread 
+// Using "extends Thread"
+
+import java.util.*;
+import java.io.*;
+
+class abc extends Thread
+{
+    
+    public void run()
+    {
+        System.out.println("Running run using thread");
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		abc obj=new abc();
+		obj.start();
+		
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+// 	Thread 
+// Using implements Runnable"
+
+import java.util.*;
+import java.io.*;
+
+class abc implements Runnable
+{
+    
+    public void run()
+    {
+        System.out.println("Running run using thread");
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		abc obj=new abc();
+		Thread t1=new Thread(obj);
+		t1.start();
+		
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+// Thread-Change thread name
+// Using "extends Thread"
+
+import java.util.*;
+import java.io.*;
+
+class abc extends Thread
+{
+    
+    public void run()
+    {
+        System.out.println("Running run using thread");
+        System.out.println("Setting new thread name: rj86");
+        Thread.currentThread().setName("rj86");
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+    }
+    
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		abc obj=new abc();
+		obj.start();
+		
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+// Thread-Change thread name
+// Using implements Runnable"
+
+import java.util.*;
+import java.io.*;
+
+class abc implements Runnable
+{
+    
+    public void run()
+    {
+        System.out.println("Running run using thread");
+        System.out.println("Setting new thread name: rj86");
+        Thread.currentThread().setName("rj86");
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		abc obj=new abc();
+		Thread t1=new Thread(obj);
+		t1.start();
+		
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+// Thread-implementation of sleep (sleep requires exception handling)
+// Using "extends Thread"
+
+import java.util.*;
+import java.io.*;
+
+class abc extends Thread
+{
+    
+    public void run()
+    {
+        try
+        {
+        System.out.println("Running run using thread");
+        System.out.println("Setting new thread name: rj86");
+        Thread.currentThread().setName("rj86");
+        Thread.sleep(1000);
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		abc obj=new abc();
+		obj.start();
+		
+	}
+}
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+// Thread-implementation of sleep (sleep requires exception handling)
+// Using implements Runnable"
+
+import java.util.*;
+import java.io.*;
+
+class abc implements Runnable
+{
+    
+    public void run()
+    {
+        try
+        {
+        System.out.println("Running run using thread");
+        System.out.println("Setting new thread name: rj86");
+        Thread.currentThread().setName("rj86");
+        Thread.sleep(1000);
+        System.out.println("Current thread : "+Thread.currentThread());
+        System.out.println("Current thread name : "+Thread.currentThread().getName());
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		abc obj=new abc();
+		Thread t1=new Thread(obj);
+		t1.start();
+		
+	}
+}

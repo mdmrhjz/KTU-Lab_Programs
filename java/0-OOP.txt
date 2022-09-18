@@ -1,0 +1,968 @@
+class command1
+{
+        public static void main(String []args)
+        {
+                for(int i=0;i<args.length;i++)
+                {
+                        System.out.println(args[i]);
+                }
+        }
+}
+
+
+
+
+
+
+public class command2
+{
+        public static void main(String []a)
+        {
+                for(int i=0;i<a.length;i++)
+                {
+                        System.out.println(a[i]);
+                }
+        }
+}
+
+
+
+
+class command3
+{
+        public static void main(String []a)
+        {
+                //for(int i=0;i<a.length;i++)
+                //{
+                        System.out.println(a[0] + a[1]);
+                //}
+        }
+}
+
+
+
+
+
+class command
+{
+        public static void main(String []a)
+        {
+                for(int i=0;i<a.length;i++)
+                {
+                        System.out.println(a[i]);
+                }
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class complex
+{
+        int real, image;
+        complex()
+        {
+                real=0;
+                image=0;
+        }
+        complex(int x)
+        {
+                real=x;
+                image=0;
+        }
+        complex(int x, int y)
+        {
+                real=x;
+                image=y;
+        }
+        complex sum(complex c1, complex c2)
+        {
+                complex c3=new complex();
+                c3.real=c1.real+c2.real;
+                c3.image=c1.image+c2.image;
+                return c3;
+        }
+}
+public class complexno
+{
+        public static void main(String []args)
+        {
+                complex c1=new complex(2, 3);
+                complex c2=new complex(5, 4);
+                complex temp;
+                temp=c1.sum(c1, c2);
+                System.out.println(temp.real+" + "+temp.image+"i");
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//BASIC CONSTRUCTORS PROGRAM
+class xy
+{
+        int x, y;
+        xy(int a, int b)
+        {
+                x=a;
+                y=b;
+        }
+        void display()
+        {
+                System.out.println(x);
+                System.out.println(y);
+        }
+}
+
+public class constructors
+{
+        public static void main(String []args)
+        {
+                xy obj=new xy(3, 4);
+                obj.display();
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//BASIC CONSTRUCTORS OVERLOADING PROGRAM
+class xy
+{
+        int x, y;
+        xy()
+        {
+                x=0;
+                y=0;
+        }
+        xy(int a)
+        {
+                x=a;
+                y=0;
+        }
+        xy(int a, int b)
+        {
+                x=a;
+                y=b;
+        }
+        void display()
+        {
+                System.out.println(x);
+                System.out.println(y);
+                System.out.println(" ");
+        }
+}
+
+public class constructorsoverloading
+{
+        public static void main(String []args)
+        {
+                xy obj1=new xy(1);
+                obj1.display();
+                xy obj2=new xy(10, 20);
+                obj2.display();
+                xy obj3=new xy();
+                obj3.display();
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.*;
+class Employee
+{
+        int age, phone, salary;
+        String name, address;
+
+        Scanner sc1=new Scanner(System.in);
+        Scanner sc2=new Scanner(System.in);
+
+        //SCAN
+        public void getname()
+        {
+                System.out.print("Name: ");
+                name=sc2.nextLine();
+        }
+
+        public void getage()
+        {
+                System.out.print("Age: ");
+                age=sc1.nextInt();
+        }
+
+        public void getphone()
+        {
+                System.out.print("Phone no.: ");
+                phone=sc1.nextInt();
+        }
+
+        public void getSalary()
+        {
+                System.out.print("Salary: ");
+                salary=sc1.nextInt();
+        }
+
+        //Scanner sc2=new Scanner(System.in);
+        public void getaddress()
+        {
+                System.out.print("Address: ");
+                address=sc2.nextLine();
+        }
+
+
+        //PRINT
+        public void printname()
+        {
+                System.out.println("Name: "+name);
+        }
+
+        public void printage()
+        {
+                System.out.println("Age: "+age);
+        }
+
+        public void printphone()
+        {
+                System.out.println("Phone: "+phone);
+        }
+
+        public void printSalary()
+        {
+                System.out.println("Salary: "+salary);
+        }
+
+        public void printaddress()
+        {
+                System.out.println("Address: "+address);
+        }
+
+
+}
+
+class Officer extends Employee
+{
+        String department, specialization;
+        Scanner sc3=new Scanner(System.in);
+
+        public void getspecialization()
+        {
+                System.out.print("Specialization: ");
+                specialization=sc3.nextLine();
+        }
+        public void getdepartment()
+        {
+                System.out.print("Department: ");
+                department=sc3.nextLine();
+        }
+
+        public void printspecialization()
+        {
+                System.out.println("Specialization: "+specialization);
+        }
+        public void printdepartment()
+        {
+                System.out.println("Department: "+department);
+        }
+}
+
+
+class Manager extends Employee
+{
+        String department, specialization;
+        Scanner sc4=new Scanner(System.in);
+
+        public void getspecialization()
+        {
+                System.out.print("Specialization: ");
+                specialization=sc4.nextLine();
+        }
+        public void getdepartment()
+        {
+                System.out.print("Department: ");
+                department=sc4.nextLine();
+        }
+
+        public void printspecialization()
+        {
+                System.out.println("Specialization: "+specialization);
+        }
+        public void printdepartment()
+        {
+                System.out.println("Department: "+department);
+        }
+}
+
+public class employees
+{
+        public static void main(String []args)
+        {
+                int offno, i, manno;
+                Scanner sc=new Scanner(System.in);
+
+                //OBJECTS
+                Officer off1=new Officer();
+
+
+                System.out.println();
+                System.out.println();
+                System.out.println("------ EMPLOYEE PROGRAM ------");
+                System.out.println();
+                //System.out.print("Enter the no. of officers: ");
+                //offno=sc.nextInt();
+                //System.out.print("Enter the no. of managers: ");
+                //manno=sc.nextInt();
+
+
+                //READ
+                System.out.println("--> Enter the details of officer");
+                off1.getname();
+                off1.getage();
+                off1.getphone();
+                off1.getSalary();
+                off1.getaddress();
+                off1.getdepartment();
+                off1.getspecialization();
+                System.out.println();
+                System.out.println();
+
+                Manager man1=new Manager();
+                System.out.println("--> Enter the details of manager");
+                man1.getname();
+                man1.getage();
+                man1.getphone();
+                man1.getSalary();
+                man1.getaddress();
+                man1.getdepartment();
+                man1.getspecialization();
+
+                //PRINT
+                System.out.println();
+                System.out.println();
+                System.out.println("----- Officer 1-----");
+                off1.printname();
+                off1.printage();
+                off1.printphone();
+                off1.printSalary();
+                off1.printaddress();
+                off1.printdepartment();
+                off1.printspecialization();
+
+                System.out.println();
+                System.out.println();
+                man1.printname();
+                man1.printage();
+                man1.printphone();
+                man1.printSalary();
+                man1.printaddress();
+                man1.printdepartment();
+                man1.printspecialization();
+                System.out.println();
+                System.out.println();
+
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.*;
+//CSE SE 33 MDMR
+class frequencycount
+{
+        public static void main(String []args)
+        {
+                int i, j, count=0;
+                System.out.println("");
+                System.out.println("FREQUENCY COUNT");
+                System.out.println("");
+                System.out.print("Enter a word: ");
+                Scanner sc=new Scanner(System.in);
+                String word=sc.nextLine();
+                System.out.println("");
+
+                System.out.print("Enter a letter: ");
+                char letter=sc.nextLine().charAt(0);
+                System.out.println("");
+
+                for(i=0;i<word.length();i++)
+                {
+                        if(word.charAt(i)==letter)
+                        {
+                                count++;
+                        }
+                }
+
+                System.out.println("------ OUTPUT ------");
+                System.out.println("No. of entered letter in the given word = "+count);
+                System.out.println("");
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CSE S3 33 MDMR
+abstract class Shape
+{
+        public abstract void numberOfSides();
+}
+
+class Rectangle extends Shape
+{
+        public void numberOfSides()
+        {
+                System.out.println("Number of sides of Rectangle = 4");
+        }
+}
+
+class Triangle extends Shape
+{
+        public void numberOfSides()
+        {
+                System.out.println("Number of sides of Triangle = 3");
+        }
+}
+
+class Hexagon extends Shape
+{
+        public void numberOfSides()
+        {
+                System.out.println("Number of sides of Hexagon = 6");
+        }
+}
+
+class geometrical_structure
+{
+        public static void main(String []args)
+        {
+                Rectangle r=new Rectangle();
+                Triangle t=new Triangle();
+                Hexagon h=new Hexagon();
+                r.numberOfSides();
+                t.numberOfSides();
+                h.numberOfSides();
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.*;
+//CSE S3 33 MDMR
+class matrixmultiplication
+{
+        public static void main(String []args)
+        {
+                int i, j, k, indexi, indexj;
+                System.out.println("");
+                System.out.println("MATRIX MULTIPLICATION");
+                System.out.println("");
+
+                System.out.print("Enter the no. of rows in Matrix 1: ");
+                Scanner sc=new Scanner(System.in);
+                int r1=sc.nextInt();
+
+                System.out.print("Enter the no. of columns in Matrix 1: ");
+                int c1=sc.nextInt();
+                System.out.println("");
+
+                System.out.print("Enter the no. of rows in Matrix 2: ");
+                int r2=sc.nextInt();
+
+                System.out.print("Enter the no. of columns in Matrix 2: ");
+                int c2=sc.nextInt();
+                System.out.println("");
+
+                if(c1!=r2)
+                {
+                        System.out.println("-- ERROR: Matrix multiplication is not possible");
+                        System.out.println("--> No. of columns in Matrix 1 should be same as no. of rows in matrix 2!");
+                        System.out.println("");
+                        return;
+                }
+
+                int a[][]=new int[r1][c1];
+                int b[][]=new int[r2][c2];
+                int c[][]=new int[r1][c2];
+
+                System.out.println("- Input the values of 1st matrix");
+                for(i=0;i<r1;i++)
+                {
+                        for(j=0;j<c1;j++)
+                        {
+                                indexi=i+1;
+                                indexj=j+1;
+                                System.out.print("row "+indexi+", column "+indexj+" : ");
+                                a[i][j]=sc.nextInt();
+                        }
+                }
+                System.out.println("");
+
+                System.out.println("- Input the values of 2nd matrix");
+                for(i=0;i<r2;i++)
+                {
+                        for(j=0;j<c2;j++)
+                        {
+                                indexi=i+1;
+                                indexj=j+1;
+                                System.out.print("row "+indexi+", column "+indexj+" : ");
+                                b[i][j]=sc.nextInt();
+                        }
+                }
+                System.out.println("");
+
+                for(i=0;i<r1;i++)
+                {
+                        for(j=0;j<c2;j++)
+                        {
+                                c[i][j]=0;
+                                for(k=0;k<c1;k++)
+                                        c[i][j]=c[i][j]+a[i][k]*b[k][j];
+                        }
+                }
+
+                System.out.println("");
+                System.out.println("------- OUTPUT -------");
+
+                //MATRIX 1 PRINT
+                System.out.println("MATRIX 1");
+                for(i=0;i<r1;i++)
+                {
+                        System.out.print("\t[");
+                        for(j=0;j<c1;j++)
+                        {
+                                System.out.print("  "+a[i][j]);
+                        }
+                        System.out.print("  ]");
+                        System.out.println("");
+                }
+                System.out.println("");
+
+                //MATRIX 2 PRINT
+                System.out.println("MATRIX 2");
+                for(i=0;i<r2;i++)
+                {
+                        System.out.print("\t[");
+                        for(j=0;j<c2;j++)
+                        {
+                                System.out.print("  "+b[i][j]);
+                        }
+                        System.out.print("  ]");
+                        System.out.println("");
+                }
+                System.out.println("");
+
+                //MATRIX 3 - RESULT
+                System.out.println("MATRIX 3 - RESULT");
+                for(i=0;i<r1;i++)
+                {
+                        System.out.print("\t[");
+                        for(j=0;j<c2;j++)
+                        {
+                                System.out.print("  "+c[i][j]);
+                        }
+                        System.out.print("  ]");
+                        System.out.println("");
+                }
+                System.out.println("");
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//METHOD PROGRAM
+public class method
+{
+        static int sum(int a, int b)
+        {
+                int c;
+                c=a+b;
+                return c;
+        }
+
+        public static void main(String []args)
+        {
+                int num=sum(5, 10);
+                System.out.println("METHOD PROGRAM");
+                System.out.println("c = " + num);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//METHOD OVERLOADING PROGRAM
+public class methodoverloading
+{
+        static int sum(int a, int b)
+        {
+                return (a+b);
+        }
+        static int sum(float a, float b)
+        {
+                return (a+b);
+        }
+
+        public static void main(String []args)
+        {
+                System.out.println("METHODOVERLOADING PROGRAM");
+                int numint=sum(5, 10);
+                float numfloat=sum(5.22, 2.3);
+                System.out.println("Integer sum");
+                System.out.println(" = " + numint);
+                System.out.println("Float sum");
+                System.out.println(" = " + numfloat);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.*;
+//CSE S3 33 MDMR
+class palindrome
+{
+        public static void main(String []args)
+        {
+                int i, j, len, flag=0;
+                System.out.println("");
+                System.out.println("CHECK WHETHER A WORD IS PALINDROME");
+                System.out.println("");
+                System.out.print("Enter a word: ");
+                Scanner sc=new Scanner(System.in);
+                String word=sc.nextLine();
+                System.out.println("");
+                len=word.length();
+                for(i=0,j=len-1;i<len/2;i++,j--)
+                {
+                        if(word.charAt(i)!=word.charAt(j))
+                        {
+                                flag=1;
+                                break;
+                        }
+                }
+
+                System.out.println("------ OUTPUT ------");
+                if(flag==0)
+                        System.out.println("The entered word is a palindrome");
+                else
+                        System.out.println("The entered word is a NOT a palindrome");
+                System.out.println("");
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.io.*;
+public class recursion
+{
+ static int factorial(int n)
+  {
+   if(n==1)
+     return 1;
+   else
+     return(n*factorial(n-1));
+  }
+ public static void main(String[]args)
+ {
+  System.out.println(factorial(5));
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class sample
+{
+        int a, b;
+        sample(int a, int b)
+        {
+                this.a=a;
+                this.b=b;
+        }
+        void display()
+        {
+                System.out.println(a);
+                System.out.println(b);
+        }
+}
+public class thiskeyword
+{
+        public static void main(String []args)
+        {
+                sample sm=new sample(2, 6);
+                sm.display();
+        }
+}

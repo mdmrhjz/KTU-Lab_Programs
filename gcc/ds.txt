@@ -1,0 +1,864 @@
+########################### BINARY SEARCH ###########################
+#include <stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int a[50], i, n, FIRST, LAST, mid, item, flag=1;
+        printf("\n");
+        printf("Enter the number of elements: ");
+        scanf("%d", &n);
+        printf("\n");
+        printf("Enter the elements\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d", &a[i]);
+        }
+
+        printf("\n");
+        printf("Enter the value to be searched: ");
+        scanf("%d", &item);
+        printf("\n");
+
+        FIRST=0;
+        LAST=n-1;
+        while(FIRST<=LAST)
+        {
+                mid=(FIRST+LAST)/2;
+                if(item==a[mid])
+                {
+                        flag=0;
+                        break;
+                }
+                else if(item<a[mid])
+                {
+                        LAST=mid-1;
+                }
+                else
+                {
+                        FIRST=mid+1;
+                }
+        }
+
+        if(flag==0)
+                printf("Entered value found at index no. : %d ", mid);
+        else
+                printf("Value not found");
+
+        printf("\n");
+        return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### BUBBLE SORT ###########################
+#include<stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int i, j, a[20], n, temp;
+        printf(" \n");
+        printf("BUBBLE SORT AN ARRAY");
+        printf(" \n");
+        printf("Enter the no. elements: ");
+        scanf("%d", &n);
+        printf(" \n");
+        printf("Enter the elements\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d", &a[i]);
+        }
+
+        for(i=0;i<n;i++)
+        {
+                for(j=0;j<n-1;j++)
+                {
+                        if(a[j]>a[j+1])
+                        {
+                                temp=a[j];
+                                a[j]=a[j+1];
+                                a[j+1]=temp;
+                        }
+                }
+        }
+        printf("Bubble sorted array:\n");
+        for(i=0;i<n;i++)
+                printf(" %d ", a[i]);
+        printf(" \n");
+        return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### CIRCULAR QUEUE ###########################
+#include<stdio.h>
+
+int max=5;
+int count=0;
+int insert_c(int q[], int rear)
+{
+        if(count==max)
+                printf("Circular Queue is full\n");
+        else
+        {
+                printf("Enter the number: ");
+                rear=(rear+1)%max;
+                scanf("%d", &q[rear]);
+                count++;
+        }
+        return (rear);
+}
+
+int delete_c(int q[], int front)
+{
+        if(count==0)
+                printf("Circular Queue is empty\n");
+        else
+        {
+                printf("Deleted no. is %d", q[front]);
+                front=(front+1)%max;
+                count--;
+        }
+        return (front);
+}
+
+void display_c(int q[], int front)
+{
+        int i, j;
+        if(count==0)
+                printf("Circular Queue is empty\n");
+        else
+        {
+                for(i=front, j=0;j<count;j++)
+                {
+                        printf("%d\n", q[i]);
+                        i=(i+1)%max;
+                }
+        }
+}
+
+int main()
+{
+        int queue[max], rear=-1, front=0, choice, doexit=0;
+        do
+        {
+                printf("\n");
+                printf("1.Insert\n2.Delete\n3.Display\n4.Exit\n - Choice: ");
+                scanf("%d", &choice);
+                switch(choice)
+                {
+                        case 1: rear=insert_c(queue, rear);
+                                break;
+                        case 2: front=delete_c(queue, front);
+                                break;
+                        case 3: display_c(queue, front);
+                                break;
+                        case 4: doexit=1;
+                                break;
+                        default: printf("Invalid choice");
+                }
+        }while(doexit==0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### DOUBLE ENDED QUEUE ###########################
+#include<stdio.h>
+int main()
+{
+        int dq[10], front=-1, rear=-1, ch, x, choice;
+        do
+        {
+                printf("\n");
+                printf("MENU\n1.INSERT LEFT\n2.INSERT RIGHT\n3.DELETE LEFT\n4.DELETE RIGHT\n");
+                printf("\nEnter a choice: ");
+                scanf("%d", &ch);
+                switch(ch)
+                {
+                        case 1: printf("\nEnter a number: ");
+                                scanf("%d", &x);
+                                if(front==0)
+                                        printf("\nInsertion not possible");
+                                else if(front==-1)
+                                {
+                                        front=0;
+                                        rear=0;
+                                        dq[front]=x;
+                                }
+                                else
+                                {
+                                front=front-1;
+                                dq[front]=x;
+                                }
+                                break;
+
+                        case 2: printf("\nEnter a number: ");
+                                scanf("%d", &x);
+                                if(rear==9)
+                                        printf("\nInsertion not possible");
+                                else if(rear==-1)
+                                {
+                                        front=rear=0;
+                                        dq[rear]=x;
+                                }
+                                else
+                                {
+                                        rear=rear-1;
+                                        dq[rear]=x;
+                                }
+                                break;
+
+                        case 3: if(front==-1)
+                                        printf("\nDeletion is not possible");
+                                else if(front==rear)
+                                {
+                                        printf("\nDeleted element is %d", dq[front]);
+                                        front=rear=-1;
+                                }
+                                else
+                                {
+                                        printf("\nDeleted element is %d", dq[front]);
+                                        front=front+1;
+                                }
+                                break;
+
+                        case 4: if(rear==-1)
+                                        printf("\nDeletion is not possible");
+                                else if(front==rear)
+                                {
+                                        printf("\nDeleted element is %d", dq[rear]);
+                                        front=rear=-1;
+                                }
+                                else
+                                {
+                                        printf("\nDeleted element is %d", dq[rear]);
+                                        rear=rear=-1;
+                                }
+                                break;
+
+                        default:printf("\nInvalid choice");
+                }
+
+                printf("\nDO YOU WANT TO CONTINUE OR NOT(1/0): ");
+                scanf("%d", &choice);
+        }while(choice==1);
+
+                printf("\nCoded by MDMR");
+                printf("\n");
+                return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### INFIX ###########################
+#include<stdio.h>
+
+char stack[10];
+int top=-1;
+void push(char item)
+{
+        stack[++top]=item;
+}
+
+char pop()
+{
+        return(stack[top--]);
+}
+
+int prec(char op)
+{
+        switch(op)
+        {
+                case 'c':
+                case '#':return 0;
+                case '+':
+                case '-':return 1;
+                case '*':
+                case '/':return 2;
+        }
+}
+
+void main()
+{
+        char infix[20], postfix[20], symbol;
+        int i, k;
+
+        printf("Enter the valid infix expression\n");
+        scanf("%s", infix);
+        stack[++top]='#';
+        for(i=0,k=0;infix[i]!='\0';i++)
+        {
+                symbol=infix[i];
+                if(isalpha(symbol))
+                {
+                        postfix[k++]=symbol;
+                        continue;
+                }
+                if(symbol=='(')
+                {
+                        push(symbol);
+                        continue;
+                }
+                if(symbol==')')
+                {
+                        while((symbol=pop())!='(')
+                        postfix[k++]=pop();
+                        continue;
+                }
+                while(prec(symbol)<=prec(stack[top]))
+                        postfix[k++]=pop;
+                push(symbol);
+        }
+
+        while(stack[top]!='#')
+                postfix[k++]=pop();
+        postfix[k]='\0';
+        printf("infix=%s\npostfix=%s", infix, postfix);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### LINEAR SEARCH ###########################
+#include<stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int i, flag=0, n, a[25], value;
+        printf(" \n");
+        printf("Enter the no. of elements : ");
+        scanf("%d", &n);
+        printf("Enter the elements of array\n");
+        for(i=0;i<n;i++)
+                scanf("%d", &a[i]);
+
+        printf(" \n");
+        printf("Enter the element to be searched: ");
+        scanf("%d", &value);
+        printf(" \n");
+
+        for(i=0;i<n;i++)
+        {
+                if(a[i]==value)
+                {
+                        flag=1;
+                        break;
+                }
+        }
+
+        if(flag==1)
+        {
+                printf(" \n");
+                printf("Value found at index no.: %d\n", i);
+        }
+        else
+        {
+                printf(" \n");
+                printf("Entered value doesnt exist! \n");
+        }
+
+        return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### POLYNOMIAL ADDITION ###########################
+#include <stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int a[10], b[10], c[10], m, n, k, k1, i, j, x;
+        printf("\n\tPolynominal Addition\n");
+        printf("\t======================\n");
+        printf("\n\tEnter the no. of terms of the polynomial: ");
+        scanf("%d", &m);
+        printf("\n\tEnter the degrees and coefficients: ");
+        for(i=0;i<2*m;i++)
+        {
+                scanf("%d", &a[i]);
+        }
+        printf("\n\tFirst polynomial is: ");
+        k1=0;
+        if(a[k1+1]==1)
+                printf("x^%d", a[k1]);
+        else
+                printf("%dx^%d", a[k+1], a[k1]);
+
+        k1+=2;
+        while(k1<i)
+        {
+                printf("%dx^%d", a[k1+1], a[k1]);
+                k1+=2;
+        }
+
+        printf("\n\n\n\tEnter the no. of terms of 2nd polynomial: ");
+        scanf("%d", &n);
+        printf("\n\tEnter the degrees and coefficients: ");
+
+        for(j=0;j<2*m;j++)
+                scanf("%d", &b[j]);
+
+        printf("\n\tSecond polynomial is: ");
+        k1=0;
+        if(b[k1+1]==1)
+                printf("x^%d", b[k1]);
+        else
+                printf("%dx^%d", b[k+1], b[k1]);
+        k1+=2;
+        while(k1<2*2)
+        {
+                printf("+%dx^%d", b[k+1], b[k1]);
+                k1+=2;
+        }
+
+        i=0;
+        j=0;
+        k=0;
+        while(m>0 && n>0)
+        {
+                if(a[i]==b[j])
+                {
+                        c[k+1]=a[i+1]+b[j+1];
+                        c[k]=a[i];
+                        m--;
+                        n--;
+                        i+=2;
+                        j+=2;
+                }
+                else if(a[i]>b[j])
+                {
+                        c[k+1]=a[i+1];
+                        c[k]=a[i];
+                        m--;
+                        i+=2;
+                }
+                else
+                {
+                        c[k+1]=b[j+1];
+                        c[k]=b[j];
+                        n--;
+                        j+=2;
+                }
+                k+=2;
+        }
+
+        while(m>0)
+        {
+                c[k+1]=a[i+1];
+                c[k]=a[i];
+                k+=2;
+                i+=2;
+                m--;
+        }
+
+        while(n>0)
+        {
+                c[k+1]=b[j+1];
+                c[k]=b[j];
+                k+=2;
+                j+=2;
+                n--;
+        }
+
+        printf("\n\n\n\n\tSum of the two polynomials is: ");
+        k1=0;
+
+        if(c[k1+1]==1)
+                printf("x^%d", c[k1]);
+        else
+                printf("%dx^%d", c[k+1], c[k1]);
+
+        k1+=2;
+
+        while(k1<k)
+        {
+                if(c[k1+1]==1)
+                        printf("+x^%d", c[k1]);
+                else
+                        printf("+%dx^%d", c[k+1], c[k1]);
+
+                k1+=2;
+        }
+
+        printf("\n\tCoded by MDMR");
+        return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### QUEUE ###########################
+#include<stdio.h>
+int main()
+{
+        int x, a[10], front=-1, rear=-1, ch, choice;
+        do
+        {
+                printf("\n");
+                printf("MENU\n1.APPEND\n2.SERVE\n3.MAKE NULL\n4.QUEUE FULL\n5.QUEUE EMPTY");
+                printf("\nEnter a choice: ");
+                scanf("%d", &ch);
+                switch(ch)
+                {
+                        case 1: printf("\nEnter a number: ");
+                                scanf("%d", &x);
+                                if(rear==9)
+                                        printf("\nQueue overflow");
+                                else if(rear==-1)
+                                {
+                                        front=0;
+                                        rear=0;
+                                        a[rear]=x;
+                                }
+                                else
+                                {
+                                        rear=rear+1;
+                                        a[rear]=x;
+                                }
+                                break;
+
+                        case 2: if(rear==-1)
+                                        printf("\nQueue underflow");
+                                else if(front==rear)
+                                {
+                                        printf("\nDeleted element %d", a[front]);
+                                        front=rear=-1;
+                                }
+                                else
+                                {
+                                        printf("\nDeleted element %d", a[front]);
+                                        front=front+1;
+                                }
+                                break;
+
+                        case 3: front=rear=-1;
+                                break;
+
+                        case 4: if(rear==9)
+                                        printf("true");
+                                else
+                                        printf("false");
+                                break;
+
+                        case 5: if(front==-1)
+                                        printf("true");
+                                else
+                                        printf("false");
+                                break;
+
+                        default: printf("\nInvalid choice");
+                }
+
+                printf("\nDo you want to continue or not(1/0): ");
+                scanf("%d", &choice);
+
+        }while(choice==1);
+        printf("Coded by MDMR");
+        printf("\n");
+        return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### SELECTION SORT ###########################
+#include<stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int i, j, a[20], n, temp;
+        printf(" \n");
+        printf("SELECTION SORT");
+        printf(" \n");
+        printf("Enter the no. elements: ");
+        scanf("%d", &n);
+        printf(" \n");
+        printf("Enter the elements\n");
+        for(i=0;i<n;i++)
+        {
+                scanf("%d", &a[i]);
+        }
+
+        for(i=0;i<n;i++)
+        {
+                for(j=i+1;j<n;j++)
+                {
+                        if(a[i]>a[j])
+                        {
+                                temp=a[i];
+                                a[i]=a[j];
+                                a[j]=temp;
+                        }
+                }
+        }
+        printf("Sorted array:\n");
+        for(i=0;i<n;i++)
+                printf(" %d ", a[i]);
+        printf(" \n");
+        return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################### STACK ###########################
+#include<stdio.h>
+//CSE S3 33 MDMR
+int main()
+{
+        int x, a[10], top=-1, ch, choice;
+        do
+        {
+                printf("        MENU\n1. PUSH\n2. POP\n3. MAKE NULL\n4. STACK FULL\n5. STACK EMPTY");
+                printf("\nEnter your choice: ");
+                scanf("%d", &ch);
+                switch(ch)
+                {
+                        case 1:printf("Enter a number: ");
+                        scanf("%d", &x);
+                        if(top==9)
+                                printf("Stack overflow");
+                        else
+                        {
+                                top=top+1;
+                                a[top]=x;
+                        }
+                        break;
+
+                        case 2:if(top==-1)
+                                printf("Stack underflow");
+                        else
+                        {
+                                printf("Deleted element %d ", a[top]);
+                                top=top+1;
+                        }
+                        break;
+
+                        case 3:top=-1;
+                        break;
+
+                        case 4:if(top==9)
+                                printf("True");
+                        else
+                                printf("false");
+                        break;
+
+                        case 5:if(top==-1)
+                                printf("True");
+                        else
+                                printf("False");
+                        break;
+
+                        default:printf("Invalid choice");
+                        }
+
+                                printf("\nDO YOU WANT TO CONTINUE OR NOT(1/0)");
+                                scanf("%d", &choice);
+
+        }while(choice==1);
+        return 0;
+}

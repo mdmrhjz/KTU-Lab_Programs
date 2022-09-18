@@ -1,0 +1,173 @@
+//  -------------------------------                STRING                -------------------------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// string (character array) example 1
+#include<stdio.h>
+
+int main()
+{
+    char name[20]="abc";
+
+    printf(" %s\n", name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// string (character array) example 2
+#include<stdio.h>
+
+int main()
+{
+    char name[20];
+    scanf("%s", name);
+
+    printf(" %s\n", name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// string (character array) - WRONG EXAMPLE
+#include<stdio.h>
+
+int main()
+{
+    char name[20];
+    name="abc"; //This is not possible in C
+
+    printf(" %s\n", name);
+}
+
+
+//  -------------------------------                STRUCTURE                -------------------------------
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Normal structure - static memory allocation (1 value only)
+#include<stdio.h>
+#include<string.h>
+
+struct abc
+{
+    int data;
+    char name[20];
+}p;
+
+int main()
+{
+    p.data=5;
+    //p.name="xyz"; //This is not possible in C
+    strcpy(p.name, "xyz"); //To use this, include string.h
+
+    printf(" %d\n", p.data);
+    printf(" %s\n", p.name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Normal structure - static memory allocation (10 values)
+#include<stdio.h>
+#include<string.h>
+
+struct abc
+{
+    int data;
+    char name[20];
+}p[10];
+
+int main()
+{
+    p[0].data=5;
+    //p[0].name="xyz"; //This is not possible in C
+    strcpy(p[0].name, "xyz"); //To use this, include string.h
+
+    p[1].data=3;
+    //p[1].name="abc"; //This is not possible in C
+    strcpy(p[1].name, "abc"); //To use this, include string.h
+
+    printf(" %d\n", p[0].data);
+    printf(" %s\n\n", p[0].name);
+
+    printf(" %d\n", p[1].data);
+    printf(" %s\n", p[1].name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Structure using pointers - static memory allocation (1 value)
+#include<stdio.h>
+#include<string.h>
+
+struct abc
+{
+    int data;
+    char name[20];
+}*ptr, p;
+//ptr is pointer, p is name of structure.
+
+int main()
+{
+    //assigning structure to the pointer.
+    ptr=&p;
+
+    //giving values
+    ptr->data=5;
+    //ptr->name="abc"; //This is not possible in C
+    strcpy(ptr->name, "abc"); //To use this, include string.h
+
+    printf(" %d\n", ptr->data);
+    printf(" %s\n", ptr->name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Structure using typedef - static memory allocation (1 value)
+#include<stdio.h>
+#include<string.h>
+
+typedef struct abc
+{
+    int data;
+    char name[20];
+}p;
+
+int main()
+{
+    p s1;
+    s1.data=5;
+    //p.name="xyz"; //This is not possible in C
+    strcpy(s1.name, "xyz"); //To use this, include string.h
+
+    printf(" %d\n", s1.data);
+    printf(" %s\n", s1.name);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// Structure using typedef - static memory allocation (1 value)
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+struct abc
+{
+    int data;
+    char name[20];
+}*ptr, p;
+
+int main()
+{
+
+    //size = 5 x structure
+    ptr=(struct abc*) malloc(5*sizeof(struct abc)); //To use this, include stdlib.h
+
+    //First position
+    ptr->data=5;
+    strcpy(ptr->name, "abc");
+
+    //second position
+    (ptr+1)->data=2;
+    strcpy((ptr+1)->name, "xyz");
+
+    printf(" %d\n", ptr->data);
+    printf(" %s\n\n", ptr->name);
+    printf(" %d\n", (ptr+1)->data);
+    printf(" %s\n", (ptr+1)->name);
+
+}
